@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default ({items}) => (
-    <table>
+    <table className="table table-striped table-hover">
         <thead>
             <tr>
                 <th>description</th>
