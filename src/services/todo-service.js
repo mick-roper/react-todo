@@ -21,7 +21,7 @@ export class TodoService {
     getItems(cb) {
         setTimeout(() => {
             cb(this._items);
-        }, 300);
+        }, 1200);
     }
 
     add(item) {

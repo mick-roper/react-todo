@@ -9,6 +9,7 @@ export default class TodoList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            loading: true,
             items: []
         }
     }
@@ -20,12 +21,22 @@ export default class TodoList extends React.Component {
             .getItems(items => {
                 console.log('updating state')
                 this.setState({
+                    loading: false,
                     items: Object.assign([], items)
                 })
             });
     }
 
     render() {
+        if (this.state.loading) {
+            return (
+                <div>
+                    <h2>Todo Items</h2>
+                    <h3>Loading...</h3>
+                </div>
+            );
+        }
+
         return (
             <div>
                 <h2>Todo Items</h2>
