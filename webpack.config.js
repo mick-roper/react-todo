@@ -4,7 +4,7 @@ module.exports = {
     entry: './src/index.js',
     devtool: 'inline-source-map',
     devServer: {
-        contentBase: path.join(__dirname, 'wwwroot'),
+        contentBase: path.join(__dirname, 'wwwroot')
     },
     output: {
         path: path.join(__dirname, 'dist'),
