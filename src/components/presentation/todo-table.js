@@ -14,7 +14,7 @@ export default ({items}) => (
             items.map((item, id) => {
                 return <tr key={id}>
                     <td><span>{item.description}</span></td>
-                    <td><span>{item.due}</span></td>
+                    <td><span>{item.due.toString()}</span></td>
                     <td><span>{item.done == true ? 'Done' : 'Todo'}</span></td>
                 </tr>
             })

@@ -3,7 +3,7 @@ import React from 'react';
 import {TodoService} from '../../services/todo-service';
 import TodoTable from '../presentation/todo-table';
 
-const service = new TodoService();
+const todoService = new TodoService();
 
 export default class TodoList extends React.Component {
     constructor(props) {
@@ -11,6 +11,18 @@ export default class TodoList extends React.Component {
         this.state = {
             items: []
         }
+    }
+
+    componentDidMount() {
+        console.log('calling service...');
+
+        todoService
+            .getItems(items => {
+                console.log('updating state')
+                this.setState({
+                    items: Object.assign([], items)
+                })
+            });
     }
 
     render() {

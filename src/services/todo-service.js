@@ -12,20 +12,24 @@ export class TodoService {
             new TodoItem('do work', new Date(), false),
             new TodoItem('do other', new Date(2018,1,2), true),
         ];
+
+        this.getItems.bind(this.getItems);
+        this.add.bind(this.add);
+        this.remove.bind(this.remove);
     }
 
     getItems(cb) {
         setTimeout(() => {
-            cb(items);
+            cb(this._items);
         }, 300);
     }
 
     add(item) {
-        items.push(item);
+        this._items.push(item);
     }
 
     remove(item) {
-        items.map((i, x) => {
+        this._items.map((i, x) => {
             if (i === item) {
                 items.slice(x, 1);
                 return;
