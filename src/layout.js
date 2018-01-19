@@ -14,9 +14,12 @@ export default class Layout extends React.Component {
                     <div className="container-fluid">
                         <div className="row">
                             <nav className="col-md-2 d-none d-md-block bg-light sidebar">
-
+                                <div className="sidebar-sticky">
+                                    <ul className="nav flex-column">
+                                    </ul>
+                                </div>
                             </nav>
-                            <main className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+                            <main role="main" className="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
                                 <Route exact path="/" component={TodoList} />
                             </main>
                         </div>
