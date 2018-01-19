@@ -1,4 +1,7 @@
-const items = [];
+const items = [
+    new TodoItem('do work', new Date(), false),
+    new TodoItem('do other', new Date(2018,01,02), true),
+];
 
 export class TodoItem {
     constructor(description, due, done) {
@@ -8,7 +11,7 @@ export class TodoItem {
     }
 }
 
-export default class TodoService {
+export class TodoService {
     getItems() {
         return items;
     }
