@@ -14,9 +14,28 @@ module.exports = {
     plugins: [],
     module: {
         rules: [
-            { test: /\.js$/, loaders: ['babel-loader'], exclude: path.join(__dirname, 'node_modules')  },
-            { test: /\.scss$/, loaders: ['css-loader', 'style-loader', 'sass-loader'] },
-            { test: /\.json$/, loaders: ['json-loader'] }
+            { test: /\.js$/, loaders: ['babel-loader'], exclude: path.join(__dirname, 'node_modules') },
+            { test: /\.json$/, loaders: ['json-loader'] },
+            {
+                test: /\.scss$/,
+                use: [{
+                    loader: 'style-loader', // inject CSS to page
+                }, {
+                    loader: 'css-loader', // translates CSS into CommonJS modules
+                }, {
+                    loader: 'postcss-loader', // Run post css actions
+                    options: {
+                        plugins: function () { // post css plugins, can be exported to postcss.config.js
+                            return [
+                                require('precss'),
+                                require('autoprefixer')
+                            ];
+                        }
+                    }
+                }, {
+                    loader: 'sass-loader' // compiles Sass to CSS
+                }]
+            }
         ]
     }
 };
