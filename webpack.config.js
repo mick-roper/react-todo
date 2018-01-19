@@ -5,7 +5,6 @@ module.exports = {
     devtool: 'inline-source-map',
     devServer: {
         contentBase: path.join(__dirname, 'wwwroot'),
-        hot: true
     },
     output: {
         path: path.join(__dirname, 'dist'),
