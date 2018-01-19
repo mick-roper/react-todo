@@ -6,16 +6,24 @@ export default ({items}) => (
             <tr>
                 <th>description</th>
                 <th>due</th>
-                <th>done</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
         {
             items.map((item, id) => {
+                if (!item.done) {
+                    return <tr key={id}>
+                        <td><span>{item.description}</span></td>
+                        <td><span>{item.due.toISOString()}</span></td>
+                        <td><button className='btn btn-primary btn-sm' >Complete</button></td>
+                    </tr>
+                }
+
                 return <tr key={id}>
                     <td><span>{item.description}</span></td>
                     <td><span>{item.due.toISOString()}</span></td>
-                    <td><span>{item.done == true ? 'Done' : 'Todo'}</span></td>
+                    <td><span>Done</span></td>
                 </tr>
             })
         }
